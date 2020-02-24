@@ -1,7 +1,5 @@
 steps:
   - name: 'mirror.gcr.io/library/golang'
-    args: ['go', 'version']
-  - name: 'mirror.gcr.io/library/golang'
     args: ['go', 'test']
     dir: 'functions/autodeploy'
   - name: 'gcr.io/cloud-builders/gcloud'
