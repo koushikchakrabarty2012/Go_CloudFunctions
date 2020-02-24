@@ -1,7 +1,9 @@
 steps:
   - name: 'mirror.gcr.io/library/golang'
+    args: ['go', 'version']
+  - name: 'mirror.gcr.io/library/golang'
     args: ['go', 'test']
     dir: 'functions/autodeploy'
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'HandleRequest', '--trigger-http', '--runtime', 'go113', '--entry-point', 'HandleRequest']
+    args: ['functions', 'deploy', 'intcatalogapi.go', '--trigger-http', '--runtime', 'go113', '--entry-point', 'HandleRequest']
     dir: 'functions/autodeploy'
