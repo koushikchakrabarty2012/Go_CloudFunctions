@@ -5,5 +5,5 @@ steps:
     args: ['go', 'test']
     dir: 'functions/autodeploy'
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'HandleRequest', '--trigger-http', '--runtime', 'go113', '--entry-point', 'HandleRequest']
+    args: ['functions', 'deploy', 'TestCICD', '--trigger-http', '--runtime', 'go113', '--entry-point', 'HandleRequest']
     dir: 'functions/autodeploy'
