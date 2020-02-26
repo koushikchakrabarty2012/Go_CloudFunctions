@@ -75,9 +75,9 @@ func GetIntegrationList(w http.ResponseWriter, r *http.Request, intno string) {
 	client, err := bigquery.NewClient(ctx, "cloudpoc-267017")
 	var whereClause string
 	if intno != "" {
-		whereClause = " where int_no = '" + intno + "'"
+		whereClause = " where Integration_No_ = '" + intno + "'"
 	}
-	qrystr := "SELECT int_no,branch,folder,git_loc FROM `cloudpoc-267017.accounts.interfaces` " + whereClause
+	qrystr := "SELECT * FROM `cloudpoc-267017.ikeaiip.MCTP_SOF_Source_Code_Details` " + whereClause
 	query := client.Query(qrystr)
 	iter, err := query.Read(ctx)
 	PrintResult(w, iter)
@@ -91,10 +91,27 @@ func GetIntegrationList(w http.ResponseWriter, r *http.Request, intno string) {
 
 // IIPIntegration blah
 type IIPIntegration struct {
-	Intno  string `bigquery:"int_no"`
-	Branch  string  `bigquery:"branch"`
-	Folder   string `bigquery:"folder"`
-	Gitloc string `bigquery:"git_loc"`
+	IntegrationNo  string `bigquery:"Integration_No_"`
+IntegrationName  string `bigquery:"Integration_Name"`
+CEM_NameServiceSpecName  string `bigquery:"CEM_Name_Service_Spec_Name"`
+VerbName  string `bigquery:"Verb_Name"`
+Source  string `bigquery:"Source"`
+Target  string `bigquery:"Target"`
+MessageExchangePattern  string `bigquery:"Message_Exchange_Pattern"`
+Type  string `bigquery:"Type"`
+IsThisINT_MergedWithSomeOtherINT  string `bigquery:"Is_this_INT_merged_with_some_other_INT"`
+IsThisINTDependantOnOtherProjectsSay_STMS_  string `bigquery:"Is_this_INT_dependant_on_other_projects__say__STMS_"`
+ID_IntegrationDesignLink  string `bigquery:"ID__Integration_Design__Link"`
+TS_Link  string `bigquery:"TS_Link"`
+UTP_Link  string `bigquery:"UTP_Link"`
+PP_LinkForReleaseBundle  string `bigquery:"PP_link_for_Release_Bundle"`
+Comments  string `bigquery:"Comments"`
+SOA_Components  string `bigquery:"SOA_Components"`
+OSB_Components  string `bigquery:"OSB_Components"`
+DB_Components  string `bigquery:"DB_Components"`
+SOA_Components  string `bigquery:"SOA_Components"`
+ODI_Components  string `bigquery:"ODI_Components"`
+Tech  string `bigquery:"Tech"`
 }
 // PrintResult blah
 func PrintResult(w http.ResponseWriter, iter *bigquery.RowIterator) {
