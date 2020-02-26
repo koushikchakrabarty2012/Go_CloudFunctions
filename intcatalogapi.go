@@ -77,7 +77,7 @@ func GetIntegrationList(w http.ResponseWriter, r *http.Request, intno string) {
 	if intno != "" {
 		whereClause = " where Integration_No_ = '" + intno + "'"
 	}
-	qrystr := "SELECT Integration_No_,Integration_Name,CEM_Name_Service_Spec_Name,Verb_Name,Source,Target,Message_Exchange_Pattern,Type,GIT_Link,Is_this_INT_merged_with_some_other_INT,Is_this_INT_dependant_on_other_projects__say__STMS_,ID__Integration_Design__Link,TS_Link,UTP_Link,PP_link_for_Release_Bundle,Comments,SOA_Components,OSB_Components,DB_Components,ODI_Components,Tech FROM `cloudpoc-267017.ikeaiip.MCTP_SOF_Source_Code_Details` " + whereClause
+	qrystr := "SELECT Integration_No_,Integration_Name FROM `cloudpoc-267017.ikeaiip.MCTP_SOF_Source_Code_Details` " + whereClause
 	query := client.Query(qrystr)
 	iter, err := query.Read(ctx)
 	PrintResult(w, iter)
@@ -93,7 +93,7 @@ func GetIntegrationList(w http.ResponseWriter, r *http.Request, intno string) {
 type IIPIntegration struct {
 IntegrationNo  string `bigquery:"Integration_No_"`
 IntegrationName  string `bigquery:"Integration_Name"`
-CEM_NameServiceSpecName  string `bigquery:"CEM_Name_Service_Spec_Name"`
+/*CEM_NameServiceSpecName  string `bigquery:"CEM_Name_Service_Spec_Name"`
 VerbName  string `bigquery:"Verb_Name"`
 Source  string `bigquery:"Source"`
 Target  string `bigquery:"Target"`
@@ -110,7 +110,7 @@ SOA_Components  string `bigquery:"SOA_Components"`
 OSB_Components  string `bigquery:"OSB_Components"`
 DB_Components  string `bigquery:"DB_Components"`
 ODI_Components  string `bigquery:"ODI_Components"`
-Tech  string `bigquery:"Tech"`
+Tech  string `bigquery:"Tech"`*/
 }
 // PrintResult blah
 func PrintResult(w http.ResponseWriter, iter *bigquery.RowIterator) {
