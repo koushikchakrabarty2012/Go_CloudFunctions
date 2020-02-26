@@ -106,11 +106,11 @@ TS_Link  string `bigquery:"TS_Link"`
 UTP_Link  string `bigquery:"UTP_Link"`
 PP_LinkForReleaseBundle  string `bigquery:"PP_link_for_Release_Bundle"`
 Comments  string `bigquery:"Comments"`
-SOA_Components  string `bigquery:"SOA_Components"`
-OSB_Components  string `bigquery:"OSB_Components"`
-DB_Components  string `bigquery:"DB_Components"`
-SOA_Components  string `bigquery:"SOA_Components"`
-ODI_Components  string `bigquery:"ODI_Components"`
+SOAComponents  string `bigquery:"SOA_Components"`
+OSBComponents  string `bigquery:"OSB_Components"`
+DBComponents  string `bigquery:"DB_Components"`
+SOAComponents  string `bigquery:"SOA_Components"`
+ODIComponents  string `bigquery:"ODI_Components"`
 Tech  string `bigquery:"Tech"`
 }
 // PrintResult blah
