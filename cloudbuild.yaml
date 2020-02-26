@@ -5,7 +5,6 @@ steps:
     env: ["GOPATH=."]
   - name: 'mirror.gcr.io/library/golang'
     args: ['go', 'version']
-  - name: 'github.com/nathan-osman/go-sunrise github.com/gorilla/schema'
     
   - name: 'mirror.gcr.io/library/golang'
     args: ['go', 'test']
