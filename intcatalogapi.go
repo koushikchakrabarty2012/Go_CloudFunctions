@@ -12,7 +12,7 @@ import (
 	"github.com/gorilla/schema"
 )
 
-// HandleRequest blah
+// HandleRequest  new blah
 func HandleRequest(w http.ResponseWriter, r *http.Request) {
 	//fmt.Fprintf(w, "Body, %s", r.ParseForm())
 	  fmt.Fprintf(w, "Body, %s", r.ParseForm())
