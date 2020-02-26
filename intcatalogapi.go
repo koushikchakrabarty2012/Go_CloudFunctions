@@ -15,7 +15,7 @@ import (
 // HandleRequest  new blah
 func HandleRequest(w http.ResponseWriter, r *http.Request) {
 	//fmt.Fprintf(w, "Body, %s", r.ParseForm())
-	  fmt.Fprintf(w, "Body, %s", r.ParseForm())
+	 // fmt.Fprintf(w, "Body, %s", r.ParseForm())
 	//http.HandleFunc("/", IntegrationList)
 	//http.HandleFunc("/integrations", IntegrationList)
 	//fmt.Fprint(w, r.Header.Get("Content-Type"))
