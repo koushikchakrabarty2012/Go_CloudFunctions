@@ -1,14 +1,9 @@
 steps:
-  - id: go_version
-    name: "gcr.io/cloud-builders/go"
-    args: ["version"]
-    env: ["GOPATH=."]
   - name: 'mirror.gcr.io/library/golang'
-    args: ['go', 'version']
-    
+    args: ['go', 'version']    
   - name: 'mirror.gcr.io/library/golang'
     args: ['go', 'test']
-    dir: '/src'
+    dir: '.'
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['functions', 'deploy', 'HandleRequest', '--trigger-http', '--runtime', 'go113', '--entry-point', 'HandleRequest']
-    dir: '/src'
+    dir: '.'
